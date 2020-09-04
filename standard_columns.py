@@ -8,23 +8,27 @@ col = "SCH_CODE_AI	SCH_NAME	SCH_NAME_L	SCH_PIN	ORG_ADDRESS	ORG_CITY	ORG_STATE	OR
 
 std_col = col.split() #list of standard fields
 
-mandatory_cols = ["CNAME","FNAME","MNAME","RROLL","YEAR","REGNO"]
+mandatory_cols = ["CNAME","FNAME","MNAME","RROLL","YEAR","REGN_NO"]
 
 def checkMandatoryFields(colp):
-    count = 0
+
     if mandatory_cols[0] not in colp:
         return mandatory_cols[0]
+
+    if mandatory_cols[1] not in colp:
+        return mandatory_cols[1]
+
     if mandatory_cols[2] not in colp:
         return mandatory_cols[2]
+
     if mandatory_cols[3] not in colp:
         return mandatory_cols[3]
+
     if mandatory_cols[4] not in colp:
-        return mandatory_cols[3]
+        return mandatory_cols[4]
+
     if mandatory_cols[5] not in colp:
         return mandatory_cols[5]
-    if mandatory_cols[6] not in colp:
-        return mandatory_cols[6]
-    
-    if count == len(mandatory_cols):
-        return "true"
+
+    return "true"
     

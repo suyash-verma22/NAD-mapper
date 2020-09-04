@@ -9,7 +9,7 @@ app = Flask(__name__)
 std_colName  = std_col              #standard colums names
 filename = ""                       #to store name of input file
 p_colName = []                      #list to add columns of input csv file
-input_file = ""                    #variable to store name of input csv file
+input_file = ""                     #variable to store name of input csv file
 
 @app.route("/")
 @app.route("/home")

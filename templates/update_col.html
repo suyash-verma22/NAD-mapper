@@ -49,7 +49,6 @@
                         <td>
                           <select name="col" id="col">
                           <option selected = "selected" value={{state[each]}}><b>{{state[each].upper()}}</b></option>
-                          <option value={{each}}><b>No change</b></option>
                           {% for e in std_cols %}
                             {% if e != state[each] %}
                               <option  value={{e}}><b>{{e.upper()}}</b></option>
@@ -70,7 +69,7 @@
                     </td>
                     <td>
                     <select name="col" id="col">
-                        <option selected = "selected" value={{col}}><b>No change</b></option>
+                        <option selected = "selected" value={{col}}><b>{{col.upper()}}</b></option>
                         {% for each in std_cols %}
                         <option  value={{each}}><b>{{each.upper()}}</b></option>
                         {% endfor %}
