@@ -1,7 +1,8 @@
 from flask import *
 import pandas as pd
 from werkzeug.exceptions import HTTPException
-from standard_columns import std_col,checkMandatoryFields
+from standard_columns import std_col,checkMandatoryFields,columnSequencing
+from datetime import datetime
 #from mapper_forms import MapperForm
 
 app = Flask(__name__)
@@ -49,9 +50,11 @@ def download_csv():
         i+=1
     temp = checkMandatoryFields(col_list)      # check mandotory fields
     if temp == "true":
-            file = pd.read_csv(filename,header=None,skiprows=1,names=col_list)
-            file.to_csv("output.csv",index=False)
-            return render_template("download.html")
+        col_list = columnSequencing(col_list)
+        #temp_name = "" + datetime.now() +".csv"
+        file = pd.read_csv(filename,header=None,skiprows=1,names=col_list)
+        file.to_csv("output.csv",index=False)
+        return render_template("download.html")
     else:
          return render_template("update_col.html",cols = col_list,std_cols = std_col,error=temp,state=save_state)
         

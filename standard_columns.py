@@ -31,4 +31,11 @@ def checkMandatoryFields(colp):
         return mandatory_cols[5]
 
     return "true"
-    
+
+
+def columnSequencing(col_list):
+    temp = std_col
+    for c in col_list:
+        if c not in temp:
+            temp.append(c)
+        return temp    
